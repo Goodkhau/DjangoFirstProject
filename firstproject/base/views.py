@@ -3,14 +3,6 @@ from .models import Room
 from .forms import RoomForm
 
 
-
-rooms = [
-    {'id': 1, 'name':'Lets learn django!'},
-    {'id': 2, 'name':'Design with me'},
-    {'id': 3, 'name':'Fullstack Developer'}
-]
-
-
 def home(request):
     rooms = Room.objects.all()
     context = {'rooms': rooms}

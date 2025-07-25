@@ -1,11 +1,15 @@
 from django.shortcuts import render, redirect
 from .models import Room
 from .forms import RoomForm
+from .models import Topic
 
 
 def home(request):
     rooms = Room.objects.all()
-    context = {'rooms': rooms}
+
+    topics = Topic.objects.all()
+
+    context = {'rooms': rooms, 'topics': topics}
     return render(request, 'base/home.html', context)
 
 def room(request, pk):

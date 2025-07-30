@@ -8,7 +8,6 @@ from .models import Room, Topic
 
 
 def loginPage(request):
-
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -28,6 +27,10 @@ def loginPage(request):
 
     context = {}
     return render(request, 'base/login_register.html', context)
+
+def logoutUser(request):
+    logout(request)
+    return redirect('home')
 
 
 def home(request):
